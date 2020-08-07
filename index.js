@@ -66,7 +66,7 @@ server.post("/api/posts/:id/comments", (req, res) => {
         return res.status(400).json({ errorMessage: "Please provide text for the comment." })
     }
 
-    db.insertComment(req.body.text, req.params.id)
+    db.insertComment(req.body)
     .then((comment) => {
         res.status(201).json(comment)
     })
